@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Logic Simulator</string>
+
+    <string name="multilineLightBulb">Light\nBulb</string>
+
+    <string name="multilineAndGate">And\nGate</string>
+
+    <string name ="multilineNandGate">Nand\nGate</string>
+
+    <string name ="multilineXnorGate">Xnor\nGate</string>
+
+    <string name ="multilineXorGate">Xor\nGate</string>
+
+    <string name ="multilineNorGate">Nor\nGate</string>
+
+    <string name="multilineOrGate">Or\nGate</string>
+
+    <string name="multilineNotGate">Not\nGate</string>
+
+    <string name="multilineXNORGate">XNOR\nGate</string>
+
+    <string name="addSwitch">Switch</string>
+
+    <string name="Move">Move</string>
+
+    <string name="Delete">Delete</string>
+
+    <string name="Save">Save</string>
+
+    <string name="Load">Load</string>
+
+    <string name="title_activity_tutorial">tutorial</string>
+</resources>
