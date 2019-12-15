@@ -48,18 +48,6 @@
                 />
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Tutorial Sandbox"
-                android:textColor="#d2691e"
-                android:background="#000000"
-                android:textSize="30dp"
-                android:layout_marginBottom="10dp"
-                android:id="@+id/openSand"
-                />
-
-            <Button
                 android:id="@+id/openManual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
