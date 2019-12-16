@@ -11,19 +11,24 @@
         android:label="LogicLearner"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+
         <activity android:name=".Manual"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/AppTheme">
         </activity>
+
 
         <activity
             android:name=".Credits"
             android:screenOrientation="sensorPortrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/AppTheme">
         </activity>
+
 
         <activity
             android:name=".Menu"
-            android:screenOrientation="sensorPortrait">
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,10 +36,11 @@
             </intent-filter>
         </activity>
 
+
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="sensorPortrait"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,10 +48,11 @@
             </intent-filter>
         </activity>
 
+
         <activity
             android:name=".MainDriver"
             android:screenOrientation="sensorLandscape"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

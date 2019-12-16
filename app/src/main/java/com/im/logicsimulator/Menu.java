@@ -17,7 +17,6 @@ public class Menu extends Activity {
 
         TextView Topic = findViewById(R.id.topic);
         Button OpenSim = findViewById(R.id.openSim);
-        Button OpenSand = findViewById(R.id.openSand);
         Button OpenManual = findViewById(R.id.openManual);
         Button OpenCredits = findViewById(R.id.openCredits);
 
@@ -27,7 +26,6 @@ public class Menu extends Activity {
         Topic.setTypeface(typeBold);
 
         OpenSim.setTypeface(type);
-        OpenSand.setTypeface(type);
         OpenManual.setTypeface(type);
         OpenCredits.setTypeface(type);
 
