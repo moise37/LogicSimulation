@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Html;
 import android.text.InputType;
 import android.util.Log;
 import android.view.View;
@@ -62,6 +63,7 @@ public class MainDriver extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainDriver.this);
+                //Can only close save menu from pressing back button
                 builder.setCancelable(false);
                 builder.setTitle("Enter your desired save name");
                 // Set up the input
@@ -70,7 +72,7 @@ public class MainDriver extends AppCompatActivity {
                 input.setInputType(InputType.TYPE_CLASS_TEXT);
                 builder.setView(input);
                 // Set up the buttons
-                builder.setNegativeButton("Save", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(Html.fromHtml("Save"), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try{
@@ -92,7 +94,7 @@ public class MainDriver extends AppCompatActivity {
                         }
                     }
                 });
-                builder.setPositiveButton("Back", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton(Html.fromHtml("Back"), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

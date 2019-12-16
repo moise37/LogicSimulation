@@ -3,6 +3,7 @@ package com.im.logicsimulator;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.util.Log;
 
 import java.io.IOException;
