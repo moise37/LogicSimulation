@@ -115,12 +115,20 @@ public class MainView extends View {
             motionDetector.onTouchEvent(event);
 
             if (stateManager.getSingleTapState()) {
-                Log.d("###", "Single tap registered");
                 if (currentGame.getTool(touchedCell) instanceof Switch) {
                     currentGame.toggleSwitch(touchedCell);
                 }
                 stateManager.disableSingleTapState();
-            } else if (stateManager.getLongPress()) {
+            }
+            /*
+            else if(stateManager.getOnDownState()){
+                if (currentGame.getTool(touchedCell) != null && !stateManager.getWiringState()) {
+                    currentGame.saveConnection1(touchedCell);
+                    setupDraggingWire(touchedCell);
+                }
+                drawDraggingWire(event, touchedCell);
+            }*/
+            else if (stateManager.getLongPress()) {
                 //This if statement will only be entered if the selected cell is not empty and
                 //when the wiring state is disabled. This is to ensure that when a user is dragging
                 //a wire and the drag over a different object, the wire start position does not update

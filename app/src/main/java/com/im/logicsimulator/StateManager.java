@@ -10,6 +10,7 @@ public class StateManager {
     private boolean wiringState;
     private boolean longPress;
     private boolean singleTapState;
+    private boolean onDownState;
 
     public StateManager() {
         disableAllStates();
@@ -24,7 +25,10 @@ public class StateManager {
         this.disableWiringState();
         this.disableLongPressState();
         this.disableSingleTapState();
+        this.disableOnDownState();
     }
+
+    public void enableOnDownState(){this.onDownState = true;}
 
     public void enableDrawingState() {
         this.drawingState = true;
@@ -86,6 +90,8 @@ public class StateManager {
         this.singleTapState = false;
     }
 
+    public void disableOnDownState(){this.onDownState = false;}
+
     public boolean getDrawingState() {
         return this.drawingState;
     }
@@ -113,6 +119,8 @@ public class StateManager {
     public boolean getSingleTapState() {
         return this.singleTapState;
     }
+
+    public boolean getOnDownState(){return this.onDownState;}
 
     public boolean getPassiveTouchState() {
         evaluatePassiveTouchState();

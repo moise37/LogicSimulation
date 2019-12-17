@@ -18,4 +18,10 @@ public class GestureManager extends GestureDetector.SimpleOnGestureListener {
     public void onLongPress(MotionEvent e) {
         viewStateManager.enableLongPressState();
     }
+
+    @Override
+    public boolean onDown(MotionEvent e){
+        viewStateManager.enableOnDownState();
+        return true;
+    }
 }

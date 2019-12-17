@@ -12,30 +12,44 @@ import java.io.Serializable;
 public class Wire implements Serializable {
 
     private Position wireStart, wireEnd;
-    private Position bottomWireStart, bottomWireEnd;
-    private Position verticalWireStart, verticalWireEnd;
-    private Position topWireStart, topWireEnd;
     private transient Paint paint;
+
+    private Path path;
 
     public Wire() {
         paint = new Paint();
         paint.setAntiAlias(true);
+        paint.setStyle(Paint.Style.STROKE);
         wireStart = new Position();
         wireEnd = new Position();
-        bottomWireStart = new Position();
-        bottomWireEnd = new Position();
-        verticalWireStart = new Position();
-        verticalWireEnd = new Position();
-        topWireStart = new Position();
-        topWireEnd = new Position();
+        path = new Path();
     }
 
     public void draw(Canvas canvas) {
-        paint.setStrokeWidth(6f);
-        setUpTaxiCabWire();
-        canvas.drawLine(bottomWireStart.x, bottomWireStart.y, bottomWireEnd.x, bottomWireEnd.y, paint);
-        canvas.drawLine(verticalWireStart.x, verticalWireStart.y, verticalWireEnd.x, verticalWireEnd.y, paint);
-        canvas.drawLine(topWireStart.x, topWireStart.y, topWireEnd.x, topWireEnd.y, paint);
+        path.reset();
+        path.moveTo(wireStart.x, wireStart.y);
+
+        Position controlPoint1 = new Position();
+        Position controlPoint2 = new Position();
+
+        controlPoint1.x = wireStart.x + 50;
+        controlPoint1.y = wireStart.y + 50;
+
+        controlPoint2.x = wireEnd.x - 50;
+        controlPoint2.y = wireEnd.y - 50;
+
+        path.cubicTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y, wireEnd.x, wireEnd.y);
+
+        //draw black wire outline
+        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(15);
+        canvas.drawPath(path, paint);
+
+        //draw white wire outline
+        paint.setColor(Color.WHITE);
+        paint.setStrokeWidth(6);
+        canvas.drawPath(path, paint);
+
     }
 
     public void setStart(float x, float y) {
@@ -48,22 +62,6 @@ public class Wire implements Serializable {
         this.wireEnd.y = y;
     }
 
-    private void setUpTaxiCabWire() {
-        bottomWireStart.x = wireStart.x;
-        bottomWireStart.y = wireStart.y;
-        bottomWireEnd.x = (bottomWireStart.x + wireEnd.x) / 2;
-        bottomWireEnd.y = bottomWireStart.y;
-
-        verticalWireStart.x = bottomWireEnd.x;
-        verticalWireStart.y = bottomWireEnd.y;
-        verticalWireEnd.x = bottomWireEnd.x;
-        verticalWireEnd.y = wireEnd.y;
-
-        topWireStart.x = verticalWireEnd.x;
-        topWireStart.y = verticalWireEnd.y;
-        topWireEnd.x = wireEnd.x;
-        topWireEnd.y = wireEnd.y;
-    }
 
     public void setPaintWhite() {
         paint.setColor(Color.WHITE);
